@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="39dp"
+        android:layout_gravity="left|center_vertical">
+
+        <Spinner
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/band1"
+            android:entries="@array/band_colors"/>
+
+        <Spinner
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/band2"
+            android:entries="@array/band_colors" />
+
+        <Spinner
+            android:layout_width="80dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/band3"
+            android:entries="@array/band_colors" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/band4"
+            android:entries="@array/band_tols" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Ohms"
+        android:id="@+id/calculate"
+        android:layout_gravity="center"
+        android:onClick="calculate"/>
+
+    <TextView
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:text="@string/ohms"
+        android:id="@+id/result"
+        android:layout_gravity="center" />
+
+    <ImageView
+
+        android:id="@+id/imgView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher" />
+
+</LinearLayout>
