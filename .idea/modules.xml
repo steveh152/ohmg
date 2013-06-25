@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/OhmMyGosh.iml" filepath="$PROJECT_DIR$/OhmMyGosh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../OpenCV-2.4.5-android-sdk/sdk/java/sdk.iml" filepath="$PROJECT_DIR$/../OpenCV-2.4.5-android-sdk/sdk/java/sdk.iml" />
+    </modules>
+  </component>
+</project>
+
