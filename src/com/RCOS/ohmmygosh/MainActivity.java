@@ -1,6 +1,5 @@
 package com.RCOS.ohmmygosh;
 
-<<<<<<< HEAD
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -9,19 +8,12 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-=======
-import android.net.Uri;
-import android.os.Bundle;
->>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 import android.provider.MediaStore;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
-<<<<<<< HEAD
 import android.util.Log;
-=======
->>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -30,34 +22,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< HEAD
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-=======
->>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 public class MainActivity extends Activity {
 
 
 
 	private static int RESULT_LOAD_IMAGE = 1;
-<<<<<<< HEAD
     private static int CAPTURE_IMAGE_ACTIVITY_REQ = 1;
     private String picturePath;
     private ImageView imageView;
     private Uri fileUri = null;
-=======
-    private String picturePath;
->>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-<<<<<<< HEAD
 	}
 
     public static boolean isIntentAvailable(Context context, String action) {
@@ -94,34 +78,12 @@ public class MainActivity extends Activity {
     }
 
 
-
-=======
-		
-		Button buttonLoadImage = (Button) findViewById(R.id.buttonLoadPicture);
-		buttonLoadImage.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-				startActivityForResult(i, RESULT_LOAD_IMAGE);
-				
-			}
-		});
-
-	}
-
-    public String getPicturePath() {
-        return picturePath;
-    }
-
->>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-<<<<<<< HEAD
 
     protected int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         final int height = options.outHeight;
@@ -148,17 +110,11 @@ public class MainActivity extends Activity {
     }
 
 
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 
         // this happens if image is selected from gallery
-=======
-		
-	
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		
->>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 		if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
 			Uri selectedImage = data.getData();
 			String[] filePathColumn = { MediaStore.Images.Media.DATA };
@@ -168,7 +124,6 @@ public class MainActivity extends Activity {
 			picturePath = cursor.getString(columnIndex);
 			cursor.close();
 			
-<<<<<<< HEAD
 			imageView = (ImageView) findViewById(R.id.imgView);
             Bitmap image = decodeBitmapFromPath(picturePath, 300, 300);
 			imageView.setImageBitmap(image);
@@ -211,15 +166,6 @@ public class MainActivity extends Activity {
         event.setType("text/plain");
         event.putExtra(android.content.Intent.EXTRA_TEXT, picturePath);
         startActivity(event);
-=======
-			ImageView imageView = (ImageView) findViewById(R.id.imgView);
-			imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-		}
 	}
-
-    public void find_resist(View view) {
-        startActivity(new Intent(this, Resistance.class));
->>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
-    }
 
 }
