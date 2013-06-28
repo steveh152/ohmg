@@ -13,6 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_picture"
+<<<<<<< HEAD
         android:onClick="onButtonClick"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -48,5 +49,28 @@
         android:src="@drawable/clear"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"/>
+=======
+        android:onClick="onButtonClick" />
+
+    <ImageView
+        android:id="@+id/imgView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/buttonLoadPicture"
+        android:layout_below="@+id/buttonLoadPicture"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_launcher" />
+
+    <Button
+        android:id="@+id/resist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgView"
+        android:layout_marginLeft="17dp"
+        android:layout_toRightOf="@+id/buttonLoadPicture"
+        android:text="@string/resistance"
+        android:onClick="find_resist"/>
+>>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 
 </RelativeLayout>

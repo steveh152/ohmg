@@ -3,8 +3,11 @@ package com.RCOS.ohmmygosh;
 /**
  * Created by steve on 5/24/13.
  */
+<<<<<<< HEAD
 import android.content.Context;
 import android.graphics.Bitmap;
+=======
+>>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -17,15 +20,19 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.*;
 import com.RCOS.ohmmygosh.MainActivity;
+<<<<<<< HEAD
 import junit.runner.Version;
 
 
+=======
+>>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 
 public class Resistance extends Activity {
 
     private Spinner band1spr, band2spr, band3spr, band4spr;
     private double band1val, band2val, band3val, band4val;
     private TextView result;
+<<<<<<< HEAD
     private String path;
 
     protected int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
@@ -51,11 +58,14 @@ public class Resistance extends Activity {
         options.inJustDecodeBounds = false;
         return BitmapFactory.decodeFile(path, options);
     }
+=======
+>>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bands);
+<<<<<<< HEAD
         Bundle extras = getIntent().getExtras();
         if (extras == null) {
             return;
@@ -71,6 +81,12 @@ public class Resistance extends Activity {
             Toast.makeText(getApplicationContext(), "path not recognized", Toast.LENGTH_SHORT).show();
         }
         //initDebug();
+=======
+
+        /*ImageView imageView = (ImageView) findViewById(R.id.imgView2);
+        String path = getIntent().getStringExtra("picturePath");
+        imageView.setImageBitmap(BitmapFactory.decodeFile(path));*/
+>>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
     }
 
     protected double BandToVal(Spinner band, int bandnum) {

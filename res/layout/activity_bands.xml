@@ -50,6 +50,7 @@
         android:id="@+id/result"
         android:layout_gravity="center" />
 
+<<<<<<< HEAD
 
     <ImageView
 
@@ -59,4 +60,16 @@
         android:src="@drawable/ic_launcher"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"/>
+=======
+    <ImageView
+
+        android:id="@+id/imgView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher" />
+
+>>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
 </LinearLayout>

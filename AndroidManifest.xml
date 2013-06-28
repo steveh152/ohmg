@@ -8,6 +8,7 @@
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
 
+<<<<<<< HEAD
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false"/>
@@ -18,6 +19,8 @@
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
+=======
+>>>>>>> a8591560de4ab81d04484750c7c1cb3917b50dfa
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
