@@ -70,7 +70,6 @@ public class MainActivity extends Activity {
     }
 
     public void onCameraClick(View view) {
-        Toast.makeText(getApplicationContext(), "click!!", Toast.LENGTH_LONG).show();
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = getOutputPhotoFile();
         fileUri = Uri.fromFile(getOutputPhotoFile());
@@ -114,7 +113,8 @@ public class MainActivity extends Activity {
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		
+
+        // this happens if image is selected from gallery
 		if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
 			Uri selectedImage = data.getData();
 			String[] filePathColumn = { MediaStore.Images.Media.DATA };
@@ -128,6 +128,7 @@ public class MainActivity extends Activity {
             Bitmap image = decodeBitmapFromPath(picturePath, 300, 300);
 			imageView.setImageBitmap(image);
 		}
+        // this happens if image is taken with camera
         else if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQ) {
             if (resultCode == RESULT_OK) {
                 Uri photoUri = null;
@@ -143,7 +144,6 @@ public class MainActivity extends Activity {
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
             } else {
-            Toast.makeText(getApplicationContext(), "Callout for image capture failed!", Toast.LENGTH_LONG).show();
             }
             Cursor cursor = getContentResolver()
                     .query(fileUri, null, null, null, null);
@@ -154,11 +154,9 @@ public class MainActivity extends Activity {
                 int idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
                 picturePath = cursor.getString(idx);
             }
-            Toast.makeText(getApplicationContext(), "Path: "+picturePath, Toast.LENGTH_LONG).show();
-            /*
+            imageView = (ImageView) findViewById(R.id.imgView);
             Bitmap pic = decodeBitmapFromPath(picturePath, 300, 300);
             imageView.setImageBitmap(pic);
-            */
         }
 	}
 
