@@ -5,12 +5,15 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="9"
         android:targetSdkVersion="17" />
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false"/>
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus" />
 
     <uses-permission
         android:name="android.permission.CAMERA"/>
@@ -36,7 +39,11 @@
             android:name="com.RCOS.ohmmygosh.Resistance"
             android:label="Ohm My Gosh"
             android:parentActivityName="com.RCOS.ohmmygosh.MainActivity" >
-
+        </activity>
+        <activity
+            android:name="com.RCOS.ohmmygosh.MakePhotoActivity"
+            android:label="Ohm My Gosh"
+            android:parentActivityName="com.RCOS.ohmmygosh.MainActivity" >
         </activity>
     </application>
 

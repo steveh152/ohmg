@@ -21,7 +21,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,11 +29,9 @@ import java.util.Locale;
 
 public class MainActivity extends Activity {
 
-
-
 	private static int RESULT_LOAD_IMAGE = 1;
     private static int CAPTURE_IMAGE_ACTIVITY_REQ = 1;
-    private String picturePath;
+    private String picturePath = null;
     private ImageView imageView;
     private Uri fileUri = null;
 
@@ -44,6 +41,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 	}
 
+    // supposed to be used to see if camera app can be launched
     public static boolean isIntentAvailable(Context context, String action) {
         final PackageManager packageManager = context.getPackageManager();
         final Intent intent = new Intent(action);
@@ -51,6 +49,7 @@ public class MainActivity extends Activity {
         return list.size() > 0;
     }
 
+    // create file name for picture taken by camera and save to a directory
     private File getOutputPhotoFile() {
         File directory = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), getPackageName());
@@ -64,11 +63,13 @@ public class MainActivity extends Activity {
         return new File(directory.getPath()+File.separator+"RES_"+timeStamp+".jpg");
     }
 
+    // function call to select image from gallery
     public void onButtonClick(View view) {
         Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(i, RESULT_LOAD_IMAGE);
     }
 
+    // function call to start default camera app to take picture
     public void onCameraClick(View view) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File file = getOutputPhotoFile();
@@ -77,6 +78,13 @@ public class MainActivity extends Activity {
         startActivityForResult(takePictureIntent, CAPTURE_IMAGE_ACTIVITY_REQ);
     }
 
+    // function call to start new activity with camera API and OpenCV
+    
+    public void scan(View view) {
+    	Toast.makeText(getApplicationContext(), "do stuff", Toast.LENGTH_SHORT).show();
+        //Intent scan = new Intent(this, OpenCV_example.class);
+        //startActivity(scan);
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -161,11 +169,16 @@ public class MainActivity extends Activity {
 	}
 
     public void find_resist(View view) {
-        imageView.setImageResource(0);
-        Intent event = new Intent(this, Resistance.class);
-        event.setType("text/plain");
-        event.putExtra(android.content.Intent.EXTRA_TEXT, picturePath);
-        startActivity(event);
+        if (picturePath != null) {
+            imageView.setImageResource(0);
+            Intent event = new Intent(this, Resistance.class);
+            event.setType("text/plain");
+            event.putExtra(android.content.Intent.EXTRA_TEXT, picturePath);
+            startActivity(event);
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "select/take image first", Toast.LENGTH_SHORT).show();
+        }
 	}
 
 }

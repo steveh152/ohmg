@@ -8,46 +8,66 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/buttonLoadPicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/select_picture"
-        android:onClick="onButtonClick"
+    <LinearLayout
+        android:id="@+id/first_row"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_above="@+id/imgView"
-        android:layout_toLeftOf="@+id/buttonTakePicture"/>
+        android:layout_centerHorizontal="true">
 
-    <Button
-        android:id="@+id/buttonTakePicture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/take_picture"
-        android:onClick="onCameraClick"
-        android:layout_alignTop="@+id/buttonLoadPicture"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/imgView"/>
+        <Button
+            android:id="@+id/buttonLoadPicture"
+            android:text="@string/select_picture"
+            android:onClick="onButtonClick"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-    <Button
-        android:id="@+id/resist"
-        android:layout_weight="1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/resistance"
-        android:onClick="find_resist"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_above="@+id/imgView"
-        android:layout_toRightOf="@+id/buttonTakePicture"/>
+        <Button
+            android:id="@+id/buttonTakePicture"
+            android:text="@string/take_picture"
+            android:onClick="onCameraClick"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/second_row"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/first_row"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/scan"
+            android:text="Scan Resistor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="scan"/>
+
+        <Button
+            android:id="@+id/resist"
+            android:text="@string/resistance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="find_resist"/>
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imgView"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/clear"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onButtonClick" />
+        android:onClick="onButtonClick"
+        android:layout_below="@+id/second_row"
+        android:layout_centerHorizontal="true"/>
+
 
 </RelativeLayout>
